@@ -92,6 +92,7 @@ Subtle and classy
 
 .navbar-brand:hover {
   transform: scale(1.05);
+  color: var(--color-accent) !important;
 }
 
 .nav-link {
@@ -129,6 +130,12 @@ Subtle and classy
   padding: 6rem 0;
   position: relative;
   overflow: hidden;
+  min-height: 100vh; /* full screen height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .hero-section::before {
@@ -233,6 +240,11 @@ Subtle and classy
   border-color: var(--color-accent);
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(245, 158, 11, 0.2);
+}
+
+.hours-bold{
+  font-size: 20px;
+  font-weight: bolder;
 }
 
 /* Features Section */
@@ -430,3 +442,4 @@ Subtle and classy
     font-size: 1.75rem;
   }
 }
+
