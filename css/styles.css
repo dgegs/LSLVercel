@@ -1,0 +1,432 @@
+/* Root Variables */
+:root {
+  --color-primary: #dc2626;
+  --color-primary-dark: #991b1b;
+  --color-accent: #f59e0b;
+  --color-accent-light: #fcd34d;
+  --color-neutral-light: #f9fafb;
+  --color-neutral: #e5e7eb;
+  --color-neutral-dark: #1f2937;
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+
+  --font-heading: "Work Sans", sans-serif;
+  --font-body: "Open Sans", sans-serif;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+.text-white-shadow {
+  color: var(--color-nuetral); /* your gold color (#f59e0b) */
+  text-shadow:
+    3px 3px 4px black;   /* darker gold/brown shadow */
+   /* 0 0 10px #fcd34d;      /* soft glow */
+   /* 0 0 20px #f59e0b;      /* stronger gold glow */
+}
+
+.text-gold {
+  color: var(--color-accent) !important;
+}
+
+.text-gold-shadow {
+  color: var(--color-accent); /* your gold color (#f59e0b) */
+  text-shadow:
+    3px 3px 4px black;   /* darker gold/brown shadow */
+   /* 0 0 10px #fcd34d;      /* soft glow */
+   /* 0 0 20px #f59e0b;      /* stronger gold glow */
+}
+
+/* Metallic look
+
+.text-gold-shadow {
+  color: #FFD700; /* bright gold 
+  text-shadow:
+    1px 1px 2px #b8860b,
+    0 0 10px #FFD700,
+    0 0 20px #fcd34d,
+    0 0 30px #f59e0b;
+}
+
+Subtle and classy
+.text-gold-shadow {
+  color: var(--color-accent);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+*/
+
+/* Navigation */
+.navbar {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  padding: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-family: var(--font-heading);
+  transition: transform 0.3s ease;
+  text-shadow: 2px 2px black;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  padding: 0.5rem 1rem !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+.nav-link:hover {
+  color: var(--color-accent) !important;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: white;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Added styles for hours display in hero section */
+.hero-hours {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--color-accent);
+}
+
+.hero-hours h3 {
+  font-size: 1.5rem;
+}
+
+.hero-hours p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.logo-container {
+  position: relative;
+  padding: 2rem;
+  border: 3px solid var(--color-accent);
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+}
+
+.logo-image {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* Buttons */
+.btn-gold {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  color: var(--color-neutral-dark);
+  border: 2px solid var(--color-accent);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);
+}
+
+.btn-gold:hover {
+  background: var(--color-accent-light);
+  color: var(--color-neutral-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(245, 158, 11, 0.4);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: white;
+  border: 2px solid var(--color-accent);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  background: var(--color-accent);
+  color: var(--color-neutral-dark);
+  transform: translateY(-2px);
+}
+
+/* Hours Section */
+.hours-section {
+  padding: 6rem 0;
+  background: var(--color-neutral-light);
+}
+
+.hours-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  border: 3px solid var(--color-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hours-item {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--color-neutral-light);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.hours-item:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(245, 158, 11, 0.2);
+}
+
+/* Features Section */
+.features-section {
+  padding: 6rem 0;
+  background: var(--color-neutral-light);
+}
+
+.feature-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 2px solid var(--color-neutral);
+  transition: all 0.3s ease;
+  height: 100%;
+  text-align: center;
+}
+
+.feature-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+  color: white;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+/* About Section */
+.about-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.about-image-grid {
+  position: relative;
+}
+
+.about-image-card {
+  background: var(--color-neutral-light);
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  border: 2px solid var(--color-neutral);
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.about-image-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.2);
+}
+
+.about-image-card i {
+  font-size: 3rem;
+}
+
+.stat-item {
+  padding: 1rem;
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+  font-size: 0.9rem;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: white;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.contact-item i {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.contact-form-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 3px solid var(--color-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-label {
+  color: var(--color-text);
+}
+
+.form-control-gold {
+  border: 2px solid var(--color-neutral);
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.form-control-gold:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.25);
+}
+
+/* Footer */
+.footer {
+  background: var(--color-neutral-dark);
+  color: white;
+  padding: 2rem 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  justify-content: flex-end;
+}
+
+.social-link {
+  width: 45px;
+  height: 45px;
+  background: transparent;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background: var(--color-accent);
+  color: var(--color-neutral-dark);
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .hero-section {
+    padding: 4rem 0;
+  }
+
+  .hours-section,
+  .features-section,
+  .contact-section {
+    padding: 4rem 0;
+  }
+
+  .hours-card {
+    padding: 2rem;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .display-3 {
+    font-size: 2.5rem;
+  }
+
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .display-5 {
+    font-size: 1.75rem;
+  }
+}
