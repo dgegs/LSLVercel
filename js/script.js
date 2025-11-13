@@ -39,5 +39,12 @@
       }
       form.classList.add("was-validated")
     })
-  })
-})
+  });
+
+  document.querySelectorAll('[data-bs-image]').forEach(el => {
+  el.addEventListener('click', () => {
+    const src = el.getAttribute('data-bs-image');
+    const img = document.getElementById('lightboxImage');
+    if (img) img.src = src;
+  });
+});

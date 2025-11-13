@@ -12,6 +12,8 @@
 
   --font-heading: "Work Sans", sans-serif;
   --font-body: "Open Sans", sans-serif;
+
+  --nav-h: 72px;
 }
 
 /* Global Styles */
@@ -19,6 +21,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: calc(var(--nav-h) + 16px);  /* tweak the +16px if needed */
 }
 
 body {
@@ -38,8 +44,14 @@ h6 {
   line-height: 1.2;
 }
 
+p.links a {
+  color:#f59e0b;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .text-white-shadow {
-  color: var(--color-nuetral); /* your gold color (#f59e0b) */
+  color: var(--color-neutral); /* your gold color (#f59e0b) */
   text-shadow:
     3px 3px 4px black;   /* darker gold/brown shadow */
    /* 0 0 10px #fcd34d;      /* soft glow */
@@ -50,12 +62,23 @@ h6 {
   color: var(--color-accent) !important;
 }
 
+.text-gold-bold{
+  color: var(--color-accent) !important;
+  font-weight: bolder;
+  font-size: ;
+}
+
 .text-gold-shadow {
   color: var(--color-accent); /* your gold color (#f59e0b) */
   text-shadow:
     3px 3px 4px black;   /* darker gold/brown shadow */
    /* 0 0 10px #fcd34d;      /* soft glow */
    /* 0 0 20px #f59e0b;      /* stronger gold glow */
+}
+
+.text-gold-shadow1 {
+  color: #f59e0b; /* gold */
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.6), 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 /* Metallic look
@@ -78,7 +101,7 @@ Subtle and classy
 
 /* Navigation */
 .navbar {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  background: linear-gradient(135deg, #7a0e0e 0%, #5a0000 100%); /* deep red solid gradient */
   padding: 1rem 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -88,6 +111,12 @@ Subtle and classy
   font-family: var(--font-heading);
   transition: transform 0.3s ease;
   text-shadow: 2px 2px black;
+}
+
+.navbar-logo {
+  height: 50px;        /* fits standard Bootstrap navbar height */
+  width: auto;
+  display: block;
 }
 
 .navbar-brand:hover {
@@ -125,12 +154,38 @@ Subtle and classy
 
 /* Hero Section */
 .hero-section {
+  position: relative;
+  background: url("/images/gamesLeft.jpg") center center no-repeat;
+  background-size: cover;        /* fills entire hero area */
+  background-attachment: fixed;  /* adds subtle parallax effect on scroll (optional) */
+  background-color: #000;        /* fallback if image doesn’t load */
+  padding: 6rem 0;               /* space above & below content */
+  overflow: hidden;
+  text-align: center;
+  height: 100vh;             /* ensures good height */
+}
+
+/* Optional: darker overlay for text readability */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2; /* keeps your text above overlay */
+}
+
+/*.hero-section {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: white;
   padding: 6rem 0;
   position: relative;
   overflow: hidden;
-  min-height: 100vh; /* full screen height */
+  min-height: 100vh; /* full screen height 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,14 +202,17 @@ Subtle and classy
   bottom: 0;
   background: radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
   pointer-events: none;
-}
+}*/
 
 /* Added styles for hours display in hero section */
-.hero-hours {
-  background: rgba(0, 0, 0, 0.3);
-  padding: 1.5rem;
-  border-radius: 12px;
+.hero-hours{
+  background: linear-gradient(135deg, #7a0e0e 0%, #5a0000 100%);          /* solid fill */
   border: 2px solid var(--color-accent);
+  border-radius: 14px;
+  padding: 1.5rem;
+  color: #fff;
+  box-shadow: 0 0 18px var(--panel-glow);  /* soft gold glow */
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .hero-hours h3 {
@@ -166,13 +224,24 @@ Subtle and classy
   font-size: 0.95rem;
 }
 
+.hero-hours:hover,
+.logo-container:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 0 28px rgba(245,158,11,.55);
+ /* transition: transform .25s ease, box-shadow .25s ease;*/
+}
+
 .logo-container {
   position: relative;
-  padding: 2rem;
-  border: 3px solid var(--color-accent);
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+  background: linear-gradient(135deg, #7a0e0e 0%, #5a0000 100%); /* deep red solid gradient */
+  border: 2px solid var(--color-accent);                         /* gold border */
+  border-radius: 18px;
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 22px rgba(245, 158, 11, 0.35);                 /* soft gold glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo-image {
@@ -243,14 +312,19 @@ Subtle and classy
 }
 
 .hours-bold{
-  font-size: 20px;
+  font-size: 50px;
   font-weight: bolder;
+}
+
+.intro-bold{
+  font-size: 25px;
 }
 
 /* Features Section */
 .features-section {
-  padding: 6rem 0;
+  padding: 10rem 0;
   background: var(--color-neutral-light);
+  min-height: 100vh;
 }
 
 .feature-card {
@@ -285,12 +359,21 @@ Subtle and classy
 
 /* About Section */
 .about-section {
-  padding: 6rem 0;
-  background: white;
+  min-height: calc(100svh - var(--nav-h));
+    /* let it grow if content is taller */
+    display: flex;
+    align-items: center;     /* vertical center */
+    padding-block: 3rem;     /* gentler vertical padding */
+    background: #fff;
+    overflow: hidden;        /* hide any bleed */
 }
 
 .about-image-grid {
   position: relative;
+}
+
+.about-section > .container{
+  width: 100%;
 }
 
 .about-image-card {
@@ -325,6 +408,72 @@ Subtle and classy
 .stat-item p {
   font-size: 0.9rem;
 }
+
+/* Gallery Section */
+.gallery-section{
+  min-height: calc(100svh - var(--nav-h));  /* fills viewport under sticky nav */
+  display: flex;
+  align-items: center;
+  background: var(--color-neutral-light);
+  padding-block: 4rem;
+  overflow: hidden;
+}
+
+.gallery-card{
+  display: block;
+  position: relative;
+  border: 2px solid var(--color-neutral);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  aspect-ratio: 1 / 1;              /* square tiles */
+}
+
+.gallery-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+}
+
+/* Gold glow + zoom on hover */
+.gallery-card:hover{
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 30px rgba(245,158,11,.25);
+  transform: translateY(-4px);
+}
+.gallery-card:hover .gallery-img{ transform: scale(1.06); }
+
+/* Optional: subtle gold overlay on hover */
+.gallery-card::after{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at center, rgba(245,158,11,.10), transparent 60%);
+  opacity: 0; transition: opacity .25s ease;
+}
+.gallery-card:hover::after{ opacity: 1; }
+
+/* Lightbox modal frame */
+#lightboxModal .modal-content{
+  border: 2px solid var(--color-accent);
+  border-radius: 16px;
+  box-shadow: 0 0 24px rgba(245,158,11,.35);
+}
+#lightboxModal img{
+  display:block;
+  max-height: 80vh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* Responsive tweak to keep spacing comfy on smaller screens */
+@media (max-width: 991px){
+  .gallery-section{ padding-block: 3rem; }
+}
+
 
 /* Contact Section */
 .contact-section {
@@ -410,8 +559,14 @@ Subtle and classy
 
 /* Responsive */
 @media (max-width: 991px) {
+
+  :root{ --nav-h: 60px;}
+
+  .about-section{padding-block: 2rem};
+
   .hero-section {
     padding: 4rem 0;
+    background: url("images/gamesLeft.jpg") center center/cover no-repeat;
   }
 
   .hours-section,
@@ -440,6 +595,15 @@ Subtle and classy
 
   .display-5 {
     font-size: 1.75rem;
+  }
+   .navbar-logo {
+    height: 32px;      /* slightly smaller on tablets/phones */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-logo {
+    height: 28px;      /* compact for narrow screens */
   }
 }
 
