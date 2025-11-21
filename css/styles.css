@@ -155,7 +155,7 @@ Subtle and classy
 /* Hero Section */
 .hero-section {
   position: relative;
-  background: url("/images/gamesLeft.jpg") center center no-repeat;
+  background: url("../images/gamesLeft.jpg") center center no-repeat;
   background-size: cover;        /* fills entire hero area */
   background-attachment: fixed;  /* adds subtle parallax effect on scroll (optional) */
   background-color: #000;        /* fallback if image doesn’t load */
